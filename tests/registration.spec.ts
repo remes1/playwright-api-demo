@@ -5,8 +5,8 @@ import { expectSchema } from '../utils/schema-validator';
 test.describe('User registration', () => {
 
     test('Register new user', async ({ user }) => {
-        const username = faker.internet.username();
-        const email = `${faker.string.alphanumeric(10)}@example.com`;
+        const username = faker.internet.userName();
+        const email = `${faker.internet.email()}`;
         const password = 'Qwerty123!';
 
         const response = await user.register(username, email, password);
@@ -18,7 +18,7 @@ test.describe('User registration', () => {
     });
 
     test('Register with existing email should fail', async ({ user }) => {
-        const username = faker.internet.username();
+        const username = faker.internet.userName();
         const existingEmail = process.env.EMAIL!;
         const password = 'Qwerty123!';
 
@@ -43,7 +43,7 @@ test.describe('User registration', () => {
 
         for (const { username, errorMessage } of cases) {
             test(`Register should fail with username "${username || '<empty>'}"`, async ({ user }) => {
-                const email = `${faker.string.alphanumeric(10)}@example.com`;
+                const email = `${faker.internet.email()}`;
                 const password = 'Qwerty123!';
 
                 const response = await user.registerRaw(
