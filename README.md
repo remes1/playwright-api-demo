@@ -134,7 +134,7 @@ All API responses are validated against JSON schemas stored in `response-schemas
 
 ## API Under Test
 
-This project tests the [Conduit API](https://conduit-api.bondaracademy.com), a real-world API specification for a blogging platform with the following endpoints:
+This project tests the https://conduit-api.bondaracademy.com, a real-world API specification for a blogging platform with the following endpoints:
 
 - **Articles**: Create, read, update, delete articles
 - **Comments**: Add and manage comments on articles
